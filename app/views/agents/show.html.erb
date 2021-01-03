@@ -1,0 +1,54 @@
+
+<p><font color="336EFF">
+<h2>Real Estate Agent Contact Information</h2>
+</font>
+</p>
+<br/>
+<h4>Contact Name:  <%= @agent.name %>  </h4>
+<h4>Work Phone: <%= @agent.telephone %>  </h4>
+<h4>Work Address: <%= @agent.work_address%>  </h4>
+<h4>Email Address: <%= @agent.email_address %>  </h4>
+<h4>Total years of Experience: <%= @agent.years_of_experience %>  </h4>
+<br/>
+<p><font color="336EFF">
+<h2>Agent's Upcoming Property Showings</h2>
+</font>
+
+<img src="https://www.trulia.com/pictures/thumbs_6/zillowstatic/fp/4a6624d28609e52ceaaa2fb9cac91ec2-full.webp"> 
+</p>
+<% @agent.propertyshowings.each do |ps| %>
+
+<ol>
+  <li>
+  Address: <%= ps.address %> 
+  <br>
+  Property Size: <%= ps.size %> 
+  <br>
+  Bed/Bath: <%= ps.description %> 
+  <br>
+  Date & Time: <%= ps.date %> at <%= ps.time %>
+  <br>  
+  Property of: <%= link_to ps.seller.name, seller_path(ps.seller) %> 
+
+  <%= form_for ps, method: :delete do |f| %>
+    <%= f.submit "Cancel Property Showing"%>
+
+    <%end%>
+
+  </li>
+  </ol>
+  <br>
+ 
+  <% end %>
+
+  <%= form_for @agent, method: :delete do |f| %>
+    <%= f.submit "Remove Agent"%>
+
+    <%end%>
+
+<%= link_to "Real Estate Agents", agents_path %>
+
+
+
+
+

@@ -1,0 +1,22 @@
+<h1>Update Agent Form </h1>
+
+<%= form_for @agent do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :telephone %>
+    <%= f.number_field :telephone %>
+    <br>
+    <%= f.label :work_address %>
+    <%= f.text_field :work_address %>
+    <br>
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address%>
+    <br>
+    <%= f.label :years_of_experience %>
+    <%= f.number_field :years_of_experience %>
+    <br>
+    <%=f.submit%>
+    <% end %>
+
+    

@@ -1,0 +1,45 @@
+
+<p><font color="336EFF">
+<h2>Seller Information</h2>
+</font>
+</p>
+<br>
+<h4><%= @seller.name %></h4>
+
+<h4>
+Phone Number: <%= @seller.telephone %>
+<br>
+Email Address: <%= @seller.email_address %>
+<br>
+Occupation: <%= @seller.occupation %>
+</h4>
+<br>
+</h4>
+
+<% @seller.propertyshowings.each do |ps| %>
+
+    <ol>
+      <li>
+      Address: <%= ps.address %> 
+      <br>
+      Property Size: <%= ps.size %> 
+      <br>
+      Bed/Bath: <%= ps.description %> 
+      <br>
+      Date & Time: <%= ps.date %> at <%= ps.time %>
+      <br>
+      Real Estate Agent: <%= link_to ps.agent.name, agent_path(ps.agent)%> 
+    
+      <%= form_for ps, method: :delete do |f| %>
+        <%= f.submit "Cancel Property Showing"%>
+        <br>
+        <% end %>
+      </li>
+      </ol>
+      <br>
+      <% end %>
+
+
+      <%= form_for @seller, method: :delete do |f| %>
+      <%= f.submit "Remove seller"%>
+        <%end%>

@@ -1,0 +1,19 @@
+<h1>Add New Seller</h1>
+
+<%= form_for @seller do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :telephone %>
+    <%= f.text_field :telephone %>
+    <br>
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %>
+    <br>
+    <%= f.label :occupation %>
+    <%= f.text_field :occupation %>
+    <br>
+    <%= f.submit%>
+    <% end %>
+
+ 
